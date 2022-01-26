@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { getTrendingMovies } from "../../api/movies";
+import { Typography } from "@mui/material"
+import { Container } from "../../components/styled/shared"
+import MovieCard from "../../components/MovieCard";
 
 const Home = () => {
+  const [trendingMovies, setTrendingMovies] = useState([])
+
+  useEffect(() => {
+    getTrendingMovies().then(data => {
+      setTrendingMovies(data);
+    })
+  }, [])
+
   return (
-    <div>
-      <h1>Home Hola Test holasda asd</h1>
-    </div>
+    <Container>
+      <Typography variant="h5">Trending Movies</Typography>
+      {trendingMovies && trendingMovies.map(movie => (
+        <MovieCard key={movie.id} {...movie} />
+      ))}
+    </Container>
   );
 };
 

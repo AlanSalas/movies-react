@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTrendingMovies, getTopRatedMovies } from "../../api/movies";
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import { Container } from "../../components/styled/shared";
 import { Carousel } from "react-responsive-carousel";
 import Banner from "../../components/Banner";
@@ -19,9 +19,11 @@ const Home = () => {
     });
   }, []);
 
+  console.log(trendingMovies);
+
   return (
     <Container>
-      <Carousel autoFocus autoPlay infiniteLoop showThumbs={false}>
+      <Carousel autoPlay infiniteLoop showThumbs={false}>
         {topRatedMovies &&
           topRatedMovies.map((movie) => (
             <Banner
@@ -31,8 +33,17 @@ const Home = () => {
             />
           ))}
       </Carousel>
-      <Typography variant="h5">Trending Movies</Typography>
-      {trendingMovies && trendingMovies.map((movie) => <MovieCard key={movie.id} {...movie} />)}
+      <Typography sx={{ my: 2 }} variant="h5">
+        Trending Movies
+      </Typography>
+      <Grid container spacing={2}>
+        {trendingMovies &&
+          trendingMovies.map((movie) => (
+            <Grid item xs={12} sm={6} md={3}>
+              <MovieCard key={movie.id} {...movie} />
+            </Grid>
+          ))}
+      </Grid>
     </Container>
   );
 };

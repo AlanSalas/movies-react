@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getGenres } from "../../api/movies";
 import { Chip, Stack, Typography } from "@mui/material";
-import { BannerContainer, BannerButton } from "../styled/home";
+import { BannerContainer, BannerFilter, BannerButton } from "../styled/home";
 
 const Banner = ({ backgroundUrl, title, overview, genre_ids }) => {
   const [genres, setGenres] = useState([]);
@@ -14,7 +14,8 @@ const Banner = ({ backgroundUrl, title, overview, genre_ids }) => {
 
   return (
     <BannerContainer backgroundUrl={backgroundUrl}>
-      <Stack alignItems="flex-start">
+      <BannerFilter />
+      <Stack sx={{ position: "relative", zIndex: "2" }} alignItems="flex-start">
         <Stack direction="row">
           {genres &&
             genres.map((genre) => (

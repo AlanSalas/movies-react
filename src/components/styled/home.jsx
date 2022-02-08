@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 export const BannerContainer = styled("div", {
   shouldForwardProp: (prop) => !["backgroundUrl"].includes(prop),
 })(({ theme, backgroundUrl }) => ({
+  position: "relative",
   width: "100%",
   height: "648px",
   color: theme.palette.common.white,
@@ -11,6 +12,16 @@ export const BannerContainer = styled("div", {
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 }));
+
+export const BannerFilter = styled("div")({
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  top: "0",
+  left: "0",
+  zIndex: "1",
+  backgroundColor: "rgba(0, 0, 0, .5)",
+});
 
 export const BannerButton = styled("button")(({ theme }) => ({
   outline: "none",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
+import useAuth from "../../hooks/useAuth";
 // Components
 import { Stack, Box, Typography, Switch } from "@mui/material";
 import GoogleButton from "../../components/GoogleButton";
@@ -11,11 +12,12 @@ import Logo from "../../assets/logo.png";
 
 const Login = () => {
   const [isRemember, setIsRemember] = useState(false);
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const responseGoogle = (res) => {
     if (res && res.profileObj) {
-      localStorage.setItem("profile", JSON.stringify(res?.profileObj));
+      login(res);
       navigate("/");
     }
   };

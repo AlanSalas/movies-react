@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
 import { Avatar, Tooltip } from "@mui/material";
 
 const User = () => {
-  const profile = JSON.parse(localStorage.getItem("profile"));
-  const [userName, setUserName] = useState((profile && profile.name) || "");
-  const [userImage, setUserImage] = useState((profile && profile.imageUrl) || "");
+  const { isAuth } = useAuth();
+  const [userName, setUserName] = useState("");
+  const [userImage, setUserImage] = useState("");
 
-  console.log("profile", profile);
+  useEffect(() => {
+    if (isAuth) {
+      setUserName(isAuth.name);
+      setUserImage(isAuth.imageUrl);
+    }
+  }, []);
 
   return (
     <Tooltip title={userName}>

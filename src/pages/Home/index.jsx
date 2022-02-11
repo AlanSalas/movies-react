@@ -19,8 +19,6 @@ const Home = () => {
     });
   }, []);
 
-  console.log(trendingMovies);
-
   return (
     <Container>
       <Carousel autoPlay infiniteLoop showThumbs={false}>
@@ -39,8 +37,8 @@ const Home = () => {
       <Grid container spacing={2}>
         {trendingMovies &&
           trendingMovies.map((movie) => (
-            <Grid item xs={12} sm={6} md={3}>
-              <MovieCard key={movie.id} {...movie} />
+            <Grid key={movie.id} item xs={12} sm={6} md={3}>
+              <MovieCard {...movie} />
             </Grid>
           ))}
       </Grid>

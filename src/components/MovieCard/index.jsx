@@ -3,7 +3,7 @@ import { getGenres } from "../../api/movies";
 import { MovieCardContainer, MovieCardFilter, MovieLink } from "../styled/movieCard";
 import { Stack, Chip, Typography, Button, Box } from "@mui/material";
 
-const MovieCard = ({ title, overview, poster_path, genre_ids }) => {
+const MovieCard = ({ title, id, poster_path, genre_ids, handleOpenModal }) => {
   const [genre, setGenre] = useState(null);
   const urlImage = `https://image.tmdb.org/t/p/original${poster_path}`;
 
@@ -34,7 +34,9 @@ const MovieCard = ({ title, overview, poster_path, genre_ids }) => {
         >
           {title}
         </Typography>
-        <MovieLink to="/">See More</MovieLink>
+        <Typography sx={{ color: "white", cursor: "pointer" }} onClick={() => handleOpenModal(id)}>
+          See More
+        </Typography>
       </Box>
     </MovieCardContainer>
   );

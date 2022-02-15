@@ -19,3 +19,19 @@ export const getGenres = async (genreIds) => {
   );
   return filteredGenres;
 };
+
+export const getDetails = async (movieId) => {
+  const details = await API.get(`/movie/${movieId}?api_key=${API_KEY}`);
+  return details.data;
+};
+
+export const getSimilarMovies = async (movieId) => {
+  const similarMovies = await API.get(`movie/${movieId}/similar?api_key=${API_KEY}`);
+  return similarMovies.data.results;
+};
+
+export const getVideo = async (movieId) => {
+  const videos = await API.get(`movie/${movieId}/videos?api_key=${API_KEY}`);
+  const filteredVideos = videos.data.results.filter((video) => video.type === "Trailer");
+  return filteredVideos[0];
+};

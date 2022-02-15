@@ -28,7 +28,6 @@ export const BannerButton = styled("button")(({ theme }) => ({
   cursor: "pointer",
   color: theme.palette.common.white,
   fontWeight: "bold",
-  border: "none",
   padding: theme.spacing(2, 5),
   background: "transparent",
   border: "2px solid #0e3fa9",

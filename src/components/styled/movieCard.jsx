@@ -21,7 +21,7 @@ export const MovieCardContainer = styled(Stack, {
   },
 }));
 
-export const MovieCardFilter = styled("div")(({ theme }) => ({
+export const MovieCardFilter = styled("div")({
   borderRadius: "inherit",
   position: "absolute",
   width: "100%",
@@ -29,5 +29,5 @@ export const MovieCardFilter = styled("div")(({ theme }) => ({
   top: "0",
   left: "0",
   zIndex: "1",
-  background: `linear-gradient(transparent, ${theme.palette.filters.dark})`,
-}));
+  background: "linear-gradient(transparent, rgba(0, 0, 0, 1))",
+});

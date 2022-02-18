@@ -1,12 +1,14 @@
-import { Navbar as NavbarStyled } from "../styled/navbar";
-import useAuth from "../../hooks/useAuth";
-import { Container } from "../styled/shared";
+// Components
 import { Stack, Box, IconButton } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
 import InputSearch from "../InputSearch";
 import User from "../User";
 import Logo from "../../assets/logo.png";
+// StyledComponents
+import { Navbar as NavbarStyled } from "../styled/navbar";
+import { Container, LinkStyled } from "../styled/shared";
+// Hooks
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const { logOut } = useAuth();
@@ -23,23 +25,15 @@ const Navbar = () => {
         >
           <Stack direction="row" height="100%" gap={2} alignItems="center">
             <Box sx={{ width: "100px" }} component="img" src={Logo} />
-            <Link style={{ textDecoration: "none", color: "white" }} to="/">
-              Home
-            </Link>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/series">
-              Series
-            </Link>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/movies">
-              Movies
-            </Link>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/popular">
-              Popular
-            </Link>
+            <LinkStyled to="/">Home</LinkStyled>
+            <LinkStyled to="/series">Series</LinkStyled>
+            <LinkStyled to="/movies">Movies</LinkStyled>
+            <LinkStyled to="/popular">Popular</LinkStyled>
           </Stack>
           <Stack height="100%" direction="row" gap={2}>
             <InputSearch />
             <User />
-            <IconButton onClick={logOut} sx={{ color: "white" }}>
+            <IconButton onClick={logOut} sx={{ color: "text.white" }}>
               <LogoutIcon />
             </IconButton>
           </Stack>

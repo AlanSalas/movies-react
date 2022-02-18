@@ -1,5 +1,7 @@
-import SearchIcon from "@mui/icons-material/Search";
+// StyledComponents
 import { InputStyled, SearchContainer } from "../styled/shared";
+// Icons
+import SearchIcon from "@mui/icons-material/Search";
 
 const InputSearch = () => {
   return (

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { getTrendingMovies, getTopRatedMovies } from "../../api/movies";
+// React
+import { useState, useEffect } from "react";
+// Components
 import { Typography, Grid } from "@mui/material";
-import { Container } from "../../components/styled/shared";
 import { Carousel } from "react-responsive-carousel";
 import Banner from "../../components/Banner";
 import MovieCard from "../../components/MovieCard";
 import InfoModal from "../../components/InfoModal";
 import MovieDetails from "../../components/MovieDetails";
+// StyledComponents
+import { Container } from "../../components/styled/shared";
+// Services
+import { getTrendingMovies, getTopRatedMovies } from "../../api/movies";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -30,8 +34,8 @@ const Home = () => {
   const handleCloseModal = () => setOpenInfoModal(false);
 
   return (
-    <Container>
-      <Carousel autoPlay infiniteLoop showThumbs={false}>
+    <>
+      <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
         {topRatedMovies &&
           topRatedMovies.map((movie) => (
             <Banner
@@ -41,21 +45,23 @@ const Home = () => {
             />
           ))}
       </Carousel>
-      <Typography sx={{ my: 2 }} variant="h5">
-        Trending Movies
-      </Typography>
-      <Grid container spacing={2}>
-        {trendingMovies &&
-          trendingMovies.map((movie) => (
-            <Grid key={movie.id} item xs={12} sm={6} md={3}>
-              <MovieCard {...movie} handleOpenModal={handleOpenModal} />
-            </Grid>
-          ))}
-      </Grid>
-      <InfoModal open={openInfoModal} handleCloseModal={handleCloseModal}>
-        <MovieDetails movieId={movieId} />
-      </InfoModal>
-    </Container>
+      <Container>
+        <Typography sx={{ my: 2, color: "text.white" }} variant="h5">
+          Trending Movies
+        </Typography>
+        <Grid container spacing={2}>
+          {trendingMovies &&
+            trendingMovies.map((movie) => (
+              <Grid key={movie.id} item xs={12} sm={6} md={3}>
+                <MovieCard {...movie} handleOpenModal={handleOpenModal} />
+              </Grid>
+            ))}
+        </Grid>
+        <InfoModal open={openInfoModal} handleCloseModal={handleCloseModal}>
+          <MovieDetails movieId={movieId} />
+        </InfoModal>
+      </Container>
+    </>
   );
 };
 

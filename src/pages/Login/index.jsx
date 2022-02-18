@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+// React
+import { useState } from "react";
+// Hooks
 import { useNavigate } from "react-router-dom";
-import GoogleLogin from "react-google-login";
 import useAuth from "../../hooks/useAuth";
 // Components
-import { Stack, Box, Typography, Switch } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
+import GoogleLogin from "react-google-login";
+// StyledComponents
 import GoogleButton from "../../components/GoogleButton";
 import { LoginContainer, LoginImage, LoginCard } from "../../components/styled/login";
 // Assets
@@ -11,7 +14,6 @@ import BackgroundLogin from "../../assets/backgroundlogin.png";
 import Logo from "../../assets/logo.png";
 
 const Login = () => {
-  const [isRemember, setIsRemember] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -34,10 +36,10 @@ const Login = () => {
       <LoginCard>
         <Stack width="100%" sx={{ textAlign: "left" }}>
           <Box sx={{ width: "150px", margin: "0 auto" }} component="img" src={Logo} />
-          <Typography sx={{ fontWeight: "bold", mb: 2, mt: 4 }} variant="h5">
+          <Typography sx={{ color: "text.white", fontWeight: "bold", mb: 2, mt: 4 }} variant="h5">
             Nice to see you again
           </Typography>
-          <Typography sx={{ mb: 2 }} variant="h6">
+          <Typography sx={{ color: "text.white", mb: 2 }} variant="h6">
             Login
           </Typography>
           <GoogleLogin
@@ -47,10 +49,6 @@ const Login = () => {
             onFailure={failureGoogle}
             cookiePolicy={"single_host_origin"}
           />
-          <Stack direction="row" alignItems="center">
-            <Switch checked={isRemember} onChange={() => setIsRemember(!isRemember)} />
-            <Typography>Remember me</Typography>
-          </Stack>
         </Stack>
       </LoginCard>
     </LoginContainer>

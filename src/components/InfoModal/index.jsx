@@ -1,5 +1,6 @@
-import React from "react";
+// Components
 import { Modal, Fade, Backdrop } from "@mui/material";
+// StyledComponents
 import { InfoModalContainer } from "../styled/InfoModal";
 
 const InfoModal = ({ children, open, handleCloseModal }) => {

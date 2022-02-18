@@ -1,5 +1,4 @@
 import { Stack } from "@mui/material";
-import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
 export const MovieCardContainer = styled(Stack, {
@@ -30,10 +29,5 @@ export const MovieCardFilter = styled("div")({
   top: "0",
   left: "0",
   zIndex: "1",
-  background: "linear-gradient(transparent, rgba(0, 0, 0, 1));",
-});
-
-export const MovieLink = styled(Link)({
-  textDecoration: "none",
-  color: "white",
+  background: `linear-gradient(transparent, ${theme.palette.filters.dark})`,
 });

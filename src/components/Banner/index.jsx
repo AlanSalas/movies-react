@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { getGenres } from "../../api/movies";
+// React
+import { useEffect, useState } from "react";
+// Components
 import { Chip, Stack, Typography } from "@mui/material";
+// StyledComponents
 import { BannerContainer, BannerFilter, BannerButton } from "../styled/home";
+// Services
+import { getGenres } from "../../api/movies";
 
 const Banner = ({ backgroundUrl, title, overview, genre_ids }) => {
   const [genres, setGenres] = useState([]);
@@ -21,7 +25,13 @@ const Banner = ({ backgroundUrl, title, overview, genre_ids }) => {
             genres.map((genre) => (
               <Chip
                 key={genre[0].id}
-                sx={{ mb: 2, mr: 1, background: "rgba(255,255,255, .2)", color: "white" }}
+                sx={{
+                  mb: 2,
+                  mr: 1,
+                  bgcolor: "primary.main",
+                  color: "text.white",
+                  fontWeight: "bold",
+                }}
                 label={genre[0].name}
               />
             ))}

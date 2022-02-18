@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { getDetails, getSimilarMovies, getVideo } from "../../api/movies";
+// React
+import { useState, useEffect } from "react";
+// Components
 import { Typography, Grid } from "@mui/material";
 import SimilarMovieCard from "../SimilarMovieCard";
+// Services
+import { getDetails, getSimilarMovies, getVideo } from "../../api/movies";
 
 const MovieDetails = ({ movieId }) => {
   const [details, setDetails] = useState({});

@@ -1,10 +1,12 @@
-import React from "react";
+// Components
+import { Typography } from "@mui/material";
+// StyledComponents
 import {
   SimilarMovieCardContainer,
   SimilarMovieImage,
   SimilarMovieInfo,
 } from "../styled/similarMovieCard";
-import { Typography } from "@mui/material";
+// Assets
 import NoImage from "../../assets/no-image.png";
 
 const SimilarMovieCard = ({ backdrop_path, overview }) => {

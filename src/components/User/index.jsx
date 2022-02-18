@@ -1,6 +1,9 @@
+// React
 import { useState, useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
+// Components
 import { Avatar, Tooltip } from "@mui/material";
+// Hooks
+import useAuth from "../../hooks/useAuth";
 
 const User = () => {
   const { isAuth } = useAuth();

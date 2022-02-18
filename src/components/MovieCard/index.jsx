@@ -1,7 +1,11 @@
+// React
 import { useEffect, useState } from "react";
+// Components
+import { Chip, Typography, Box } from "@mui/material";
+// StyledComponents
+import { MovieCardContainer, MovieCardFilter } from "../styled/movieCard";
+// Services
 import { getGenres } from "../../api/movies";
-import { MovieCardContainer, MovieCardFilter, MovieLink } from "../styled/movieCard";
-import { Stack, Chip, Typography, Button, Box } from "@mui/material";
 
 const MovieCard = ({ title, id, poster_path, genre_ids, handleOpenModal }) => {
   const [genre, setGenre] = useState(null);
@@ -18,14 +22,14 @@ const MovieCard = ({ title, id, poster_path, genre_ids, handleOpenModal }) => {
       <MovieCardFilter />
       <Box sx={{ position: "relative", zIndex: "2" }}>
         <Chip
-          sx={{ background: "black", color: "white", fontWeight: "bold", mb: 2 }}
+          sx={{ bgcolor: "primary.main", color: "text.white", fontWeight: "bold", mb: 2 }}
           label={genre && genre[0].name}
         />
         <Typography
           variant="h5"
           sx={{
             fontWeight: "bold",
-            color: "white",
+            color: "text.white",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
@@ -34,7 +38,11 @@ const MovieCard = ({ title, id, poster_path, genre_ids, handleOpenModal }) => {
         >
           {title}
         </Typography>
-        <Typography sx={{ color: "white", cursor: "pointer" }} onClick={() => handleOpenModal(id)}>
+        <Typography
+          sx={{ color: "text.white", cursor: "pointer" }}
+          onClick={() => handleOpenModal(id)}
+          component="span"
+        >
           See More
         </Typography>
       </Box>

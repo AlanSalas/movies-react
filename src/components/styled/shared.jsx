@@ -1,4 +1,5 @@
 import { Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
 export const Container = styled("div")(({ theme }) => ({
@@ -20,4 +21,9 @@ export const SearchContainer = styled(Stack)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[500]}`,
   padding: theme.spacing(0.5),
   background: theme.palette.grey[100],
+}));
+
+export const LinkStyled = styled(Link)(({ theme }) => ({
+  color: theme.palette.text.white,
+  textDecoration: "none",
 }));

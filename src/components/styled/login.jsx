@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 export const LoginContainer = styled(Stack)({
   width: "100%",
   height: "100vh",
+  overflow: "hidden",
 });
 
 export const LoginImage = styled("div")({
